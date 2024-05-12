@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Clients</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+        <form method="post" th:action="@{save(page=${page}, keyword=${keyword})}">
+            <div>
+                <label>NUMERO : </label>
+                <label th:text="${reclamation.numero}"></label>
+                    <input class="form-control" type="hidden" name="numero" th:value="${reclamation.numero}">
+            </div>
+            <div>
+                <label>Date Reclamation</label>
+                <input class="form-control" type="text" name="dateReclamation" th:value="${reclamation.dateReclamation}">
+                <span class="text-danger" th:errors="${reclamation.dateReclamation}"></span>
+            </div>
+            <div>
+                <label>Type</label>
+                <input class="form-control" type="text" name="type" th:value="${reclamation.type}">
+                <span class="text-danger" th:errors="${reclamation.type}"></span>
+            </div>
+            <div>
+                <label>Email</label>
+                <input class="form-control" type="text" name="email" th:value="${reclamation.email}">
+                <span class="text-danger" th:errors="${reclamation.email}"></span>
+            </div>
+            <div>
+                <label>Traité ou non</label>
+                <input class="form-control" type="text" name="traite" th:value="${reclamation.traite}">
+                <span class="text-danger" th:errors="${reclamation.traite}"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
